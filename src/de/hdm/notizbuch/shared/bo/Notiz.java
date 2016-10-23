@@ -6,8 +6,12 @@ public class Notiz extends BusinessObject {
 
 	private static final long serialVersionUID = 1L;
 
+
+	public static final String RubrikName = null;
+
+
 	// Stellt die Rubrik bzw. den Rubriknamen einer Notiz dar.
-	private Rubrik rubrikName;
+	private String rubrikName;
 
 	// Stellt den Namen einer Notiz dar.
 	private String notizName = "";
@@ -22,12 +26,12 @@ public class Notiz extends BusinessObject {
 	private Profil profil;
 
 	// Auslesen eines Rubriknamens.
-	public Rubrik getRubrikName() {
+	public String getRubrikName() {
 		return rubrikName;
 	}
 
 	// Setzen eines Rubriknamens.
-	public void setRubrikName(Rubrik rubrikName) {
+	public void setRubrikName(String rubrikName) {
 		this.rubrikName = rubrikName;
 	}
 
@@ -69,4 +73,7 @@ public class Notiz extends BusinessObject {
 		this.profil = profil;
 	}
 
-}
+		
+	}
+
+

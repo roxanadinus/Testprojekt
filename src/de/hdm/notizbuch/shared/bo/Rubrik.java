@@ -7,9 +7,9 @@ public class Rubrik extends BusinessObject {
 	private static final long serialVersionUID = 1L;
 
 	// Stellt die Rubrik bzw. den Rubriknamen dar.
-	private Rubrik rubrikName;
+	private String rubrikName;
 
-	// Stellt den Namen einer zur Rubrik zugehörigen Notiz dar.
+	// Stellt den Namen einer zur Rubrik zugeh��rigen Notiz dar.
 	private String notizName = "";
 
 	// Erstellungsdatum einer Rubrik.
@@ -23,12 +23,12 @@ public class Rubrik extends BusinessObject {
 	
 
 	// Auslesen eines Rubriknamens.
-	public Rubrik getRubrikName() {
+	public String getRubrikName() {
 		return rubrikName;
 	}
 
 	// Setzen eins Rubriknamens.
-	public void setRubrikName(Rubrik rubrikName) {
+	public void setRubrikName(String rubrikName) {
 		this.rubrikName = rubrikName;
 	}
 
