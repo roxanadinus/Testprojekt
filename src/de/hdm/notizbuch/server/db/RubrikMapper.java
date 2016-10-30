@@ -10,10 +10,10 @@ import de.hdm.notizbuch.shared.bo.Rubrik;
 
 /**
  * Die Mapper-Klasse <code>RubrikMapper</code> bildet <code>Rubrik
- * </code>-Objekte auf Datensätze in einer relationalen Datenbank ab.Durch die
- * Bereitstellung verschiedener Methoden können mit deren Hilfe beispielsweise
- * Objekte erzeugt, editiert, gelöscht oder gesucht werden. Das sogenannte
- * Mapping erfolgt bidirektional, d.h. Objekte können in DB-Strukturen und
+ * </code>-Objekte auf Datens��tze in einer relationalen Datenbank ab.Durch die
+ * Bereitstellung verschiedener Methoden k��nnen mit deren Hilfe beispielsweise
+ * Objekte erzeugt, editiert, gel��scht oder gesucht werden. Das sogenannte
+ * Mapping erfolgt bidirektional, d.h. Objekte k��nnen in DB-Strukturen und
  * DB-Strukturen in Objekte umgewandelt werden.
  * 
  */
@@ -27,7 +27,7 @@ public class RubrikMapper {
 	/**
 	 * Die Instantiierung der Klasse RubrikMapper erfolgt nur einmal. Dies wird
 	 * auch als <b>Singleton</b> bezeichnet. Durch den Bezeichner
-	 * <code>static</code> ist die Variable nur einmal für sämtliche eventuellen
+	 * <code>static</code> ist die Variable nur einmal f��r s��mtliche eventuellen
 	 * Instanzen dieser Klasse vorhanden. Sie speichert die einzige Instanz der
 	 * Klasse.
 	 * 
@@ -35,7 +35,7 @@ public class RubrikMapper {
 	private static RubrikMapper rubrikMapper = null;
 
 	/**
-	 * Dieser geschützte Konstruktor verhindert das Erzeugen von neuen Instanzen
+	 * Dieser gesch��tzte Konstruktor verhindert das Erzeugen von neuen Instanzen
 	 * dieser Klasse mit dem Aufruf <code>new</code>.
 	 */
 
@@ -46,7 +46,7 @@ public class RubrikMapper {
 	/**
 	 * Durch <code>RubrikMapper.rubrikMapper()</code> kann folgende statische
 	 * Methode aufgerufen werden. Durch sie wird die Singleton-Eigenschaft
-	 * sichergestellt, in dem sie dafür sorgt, dass nur eine Instanz von
+	 * sichergestellt, in dem sie daf��r sorgt, dass nur eine Instanz von
 	 * <code>RubrikMapper</code> existiert. Die Instantiierung des RubrikMapper
 	 * sollte immer durch den Aufruf dieser Methode erfolgen.
 	 * 
@@ -63,13 +63,13 @@ public class RubrikMapper {
 	}
 
 	/**
-	 * Einfügen eines <code>Rubrik</code>-Objekts in die Datenbank. Dabei wird
-	 * auch der Primärschlüssel des übergebenen Objekts geprüft und ggf.
+	 * Einf��gen eines <code>Rubrik</code>-Objekts in die Datenbank. Dabei wird
+	 * auch der Prim��rschl��ssel des ��bergebenen Objekts gepr��ft und ggf.
 	 * berichtigt.
 	 * 
 	 * @param rubrik
 	 *            das zu speichernde Objekt
-	 * @return das bereits übergebene Profil - Objekt, jedoch mit ggf.
+	 * @return das bereits ��bergebene Profil - Objekt, jedoch mit ggf.
 	 *         korrigierter <code>id</code>.
 	 */
 	public Rubrik insert(Rubrik rubrik) {
@@ -80,14 +80,14 @@ public class RubrikMapper {
 			// Leeres SQL-Statement (JDBC) anlegen
 			Statement stmt = con.createStatement();
 
-			// Momentan höchsten Primärschlüsselwert prüfen
+			// Momentan h��chsten Prim��rschl��sselwert pr��fen
 			ResultSet rs = stmt.executeQuery("SELECT MAX(id) AS maxid "
 					+ "FROM rubriken ");
 
 			if (rs.next()) {
 				/*
-				 * notiz erhält den bisher maximalen, nun um 1 inkrementierten
-				 * Primärschlüssel.
+				 * notiz erh��lt den bisher maximalen, nun um 1 inkrementierten
+				 * Prim��rschl��ssel.
 				 */
 				rubrik.setId(rs.getInt("maxid") + 1);
 
@@ -96,7 +96,7 @@ public class RubrikMapper {
 				SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
 						"yyyy-MM-dd");
 
-				// Einfügeoperation erfolgt
+				// Einf��geoperation erfolgt
 				String sql = "INSERT INTO rubriken (id, rubrikName, notizName, erstellungsdatum, farbe, profil) "
 						+ "VALUES ("
 						+ rubrik.getId()
@@ -118,7 +118,7 @@ public class RubrikMapper {
 			e2.printStackTrace();
 		}
 
-		// Rückgabe, der evtl. korrigierten Rubrik.
+		// R��ckgabe, der evtl. korrigierten Rubrik.
 		return rubrik;
 	}
 
@@ -127,7 +127,7 @@ public class RubrikMapper {
 	 * 
 	 * @param rubrik
 	 *            , das Objekt, das in die DB geschrieben werden soll
-	 * @return das als Parameter übergebene Objekt
+	 * @return das als Parameter ��bergebene Objekt
 	 */
 
 	public Rubrik update(Rubrik rubrik) {
@@ -151,15 +151,15 @@ public class RubrikMapper {
 		} catch (SQLException e2) {
 			e2.printStackTrace();
 		}
-		// Rückgabe, der evtl. korrigierten Rubrik.
+		// R��ckgabe, der evtl. korrigierten Rubrik.
 		return rubrik;
 	}
 
 	/**
-	 * Löschen der Daten eines <code>Rubrik</code>-Objekts aus der Datenbank.
+	 * L��schen der Daten eines <code>Rubrik</code>-Objekts aus der Datenbank.
 	 * 
 	 * @param rubrik
-	 *            das aus der DB zu löschende Objekt
+	 *            das aus der DB zu l��schende Objekt
 	 */
 	public void delete(Rubrik rubrik) {
 		// DB-Verbindung holen
@@ -179,9 +179,9 @@ public class RubrikMapper {
 	/**
 	 * Auslesen aller Rubriken.
 	 * 
-	 * @return Eine ArrayList mit Rubrik-Objekten, die sämtliche Rubriken
-	 *         repräsentieren. Bei evtl. Exceptions wird eine partiell gefüllte
-	 *         oder ggf. auch leere ArrayList zurückgeliefert.
+	 * @return Eine ArrayList mit Rubrik-Objekten, die s��mtliche Rubriken
+	 *         repr��sentieren. Bei evtl. Exceptions wird eine partiell gef��llte
+	 *         oder ggf. auch leere ArrayList zur��ckgeliefert.
 	 */
 	public ArrayList<Rubrik> findAll() {
 		// DB-Verbindung holen
@@ -197,8 +197,8 @@ public class RubrikMapper {
 			ResultSet rs = stmt
 					.executeQuery(BASE_SELECT + "ORDER BY rubrikName");
 
-			// Für jeden Eintrag im Suchergebnis wird nun ein Rubrik-Objekt
-			// erstellt und zur Ergebnis-ArrayList hinzugefügt.
+			// F��r jeden Eintrag im Suchergebnis wird nun ein Rubrik-Objekt
+			// erstellt und zur Ergebnis-ArrayList hinzugef��gt.
 			while (rs.next()) {
 				Rubrik rubrik = map(rs);
 
@@ -208,17 +208,17 @@ public class RubrikMapper {
 			e2.printStackTrace();
 		}
 
-		// Ergebnis-ArrayList zurückgeben
+		// Ergebnis-ArrayList zur��ckgeben
 		return result;
 	}
 
 	/**
 	 * Suchen einer Rubrik mit vorgegebener ID. Da diese eindeutig ist, wird
-	 * genau ein Objekt zurückgegeben.
+	 * genau ein Objekt zur��ckgegeben.
 	 * 
 	 * @param id
-	 *            Primärschlüsselattribut in DB
-	 * @return Rubrik-Objekt, das dem übergebenen Schlüssel entspricht, null bei
+	 *            Prim��rschl��sselattribut in DB
+	 * @return Rubrik-Objekt, das dem ��bergebenen Schl��ssel entspricht, null bei
 	 *         nicht vorhandenem DB-Tupel.
 	 */
 	public Rubrik findByKey(int id) {
@@ -231,13 +231,13 @@ public class RubrikMapper {
 			// Leeres SQL-Statement (JDBC) anlegen
 			Statement stmt = con.createStatement();
 
-			// Statement ausfüllen und als Query an die DB schicken
+			// Statement ausf��llen und als Query an die DB schicken
 			ResultSet rs = stmt.executeQuery(BASE_SELECT + "WHERE id=" + id
 					+ " ORDER BY rubrikName");
 
 			/*
-			 * Da id der Primärschlüssel ist, kann maximal nur ein Tupel
-			 * zurückgegeben werden. Prüfung, ob ein Ergebnis vorliegt.
+			 * Da id der Prim��rschl��ssel ist, kann maximal nur ein Tupel
+			 * zur��ckgegeben werden. Pr��fung, ob ein Ergebnis vorliegt.
 			 */
 			if (rs.next()) {
 				// Umwandlung des Ergebnis-Tupel in ein Objekt und Ausgabe des
@@ -277,6 +277,15 @@ public class RubrikMapper {
 	
 		
 		return rubrik;
+	}
+
+
+	//TODO
+	
+	public ArrayList<Rubrik> findByProfil(Profil profil) {
+		return findByProfil(profil);
+
+
 	}
 
 }
