@@ -17,7 +17,7 @@ public class DBConnection {
 	/**
 	 * Die Instantiierung der Klasse DBConnection erfolgt nur einmal. Dies wird
 	 * auch als <b>Singleton</b> bezeichnet. Durch den Bezeichner
-	 * <code>static</code> ist die Variable nur einmal für sämtliche eventuellen
+	 * <code>static</code> ist die Variable nur einmal f��r s��mtliche eventuellen
 	 * Instanzen dieser Klasse vorhanden. Sie speichert die einzige Instanz der
 	 * Klasse.
 	 */
@@ -29,12 +29,12 @@ public class DBConnection {
 	 */
 
 	private static String googleUrl = "";
-	private static String localUrl = "";
+	private static String localUrl = "jdbc:mysql://127.0.0.1:3306/notizbuch?user=root&password";
 
 	/**
 	 * Durch <code>DBConnection.connection()</code> kann folgende statische
 	 * Methode aufgerufen werden. Durch sie wird die Singleton-Eigenschaft
-	 * sichergestellt, indem sie dafür sorgt, dass nur eine Instanz von
+	 * sichergestellt, indem sie daf��r sorgt, dass nur eine Instanz von
 	 * <code>DBConnection</code> existiert. Die Instantiierung der DBConnection
 	 * sollte immer durch den Aufruf dieser Methode erfolgen.
 	 * 
@@ -65,7 +65,7 @@ public class DBConnection {
 			}
 		}
 
-		// Verbindung zurückgeben
+		// Verbindung zur��ckgeben
 		return con;
 	}
 

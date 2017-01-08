@@ -9,7 +9,7 @@ import de.hdm.notizbuch.shared.bo.Notiz;
 import de.hdm.notizbuch.shared.bo.Profil;
 import de.hdm.notizbuch.shared.bo.Rubrik;
 
-public interface NotizbuchAdministrationAsync {
+public interface NotizbuchAdministration1Async {
 
 	void createNotiz(int id, String notizName, String rubrikName,
 			String textInhalt, Date erstellungsdatum, Profil profil,

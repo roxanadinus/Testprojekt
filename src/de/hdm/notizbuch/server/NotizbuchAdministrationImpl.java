@@ -8,13 +8,13 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import de.hdm.notizbuch.server.db.NotizMapper;
 import de.hdm.notizbuch.server.db.ProfilMapper;
 import de.hdm.notizbuch.server.db.RubrikMapper;
-import de.hdm.notizbuch.shared.NotizbuchAdministration;
+import de.hdm.notizbuch.shared.NotizbuchAdministration1;
 import de.hdm.notizbuch.shared.bo.Notiz;
 import de.hdm.notizbuch.shared.bo.Profil;
 import de.hdm.notizbuch.shared.bo.Rubrik;
 
 public class NotizbuchAdministrationImpl extends RemoteServiceServlet implements
-		NotizbuchAdministration {
+		NotizbuchAdministration1 {
 
 	private static final long serialVersionUID = 1L;
 

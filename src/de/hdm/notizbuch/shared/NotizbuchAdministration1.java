@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.google.gwt.user.client.rpc.RemoteService;
+import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 import de.hdm.notizbuch.shared.bo.Notiz;
 import de.hdm.notizbuch.shared.bo.Profil;
@@ -26,7 +27,8 @@ import de.hdm.notizbuch.shared.bo.Rubrik;
  *         Funktionen deklariert.
  */
 
-public interface NotizbuchAdministration extends RemoteService {
+@RemoteServiceRelativePath("administration")
+public interface NotizbuchAdministration1 extends RemoteService {
 
 	/**
 	 * Initialisierung des Objekts. Diese Methode ist ebenso notwendig für GWT
